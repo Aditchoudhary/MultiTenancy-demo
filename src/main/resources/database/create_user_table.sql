@@ -1,0 +1,5 @@
+CREATE TABLE `users` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(64) NOT NULL DEFAULT '' COLLATE 'utf8_general_ci',
+	PRIMARY KEY (`id`)
+);

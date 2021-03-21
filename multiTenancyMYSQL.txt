@@ -1,0 +1,44 @@
+create schema if not exists vidya;
+create schema if not exists miet;
+create schema if not exists bit;
+
+create table vidya.teacher(id bigint, name varchar(200));
+create table miet.teacher(id bigint, name varchar(200));
+create table bit.teacher(id bigint, name varchar(200));
+
+
+INSERT INTO vidya.teacher VALUES (1,"VidyaTeacher");
+
+INSERT INTO miet.teacher VALUES (1,"MietTeacher");
+
+INSERT INTO bit.teacher VALUES (1,"BitTeacher");
+
+
+##***********Master Schema***************
+
+create database master_db;
+
+CREATE TABLE  `master_db`.`tbl_tenant_master` (
+  `tenant_client_id` int(11) unsigned NOT NULL,
+  `db_name` varchar(50) NOT NULL,
+  `url` varchar(100) NOT NULL,
+  `user_name` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `driver_class` varchar(100) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  PRIMARY KEY (`tenant_client_id`) USING BTREE
+) ENGINE=InnoDB;
+
+
+
+insert into master_db.tbl_tenant_master
+values (1,'vidya','jdbc:mysql://localhost:3306/vidya?verifyServerCertificate=false&useSSL=false&requireSSL=false',
+'root', 'root', 'com.mysql.cj.jdbc.Driver', 'Y');
+
+insert into master_db.tbl_tenant_master
+values (2,'miet','jdbc:mysql://localhost:3306/miet?verifyServerCertificate=false&useSSL=false&requireSSL=false',
+'root', 'root', 'com.mysql.cj.jdbc.Driver', 'Y');
+
+insert into master_db.tbl_tenant_master
+values (3,'bit','jdbc:mysql://localhost:3306/bit?verifyServerCertificate=false&useSSL=false&requireSSL=false',
+'root', 'root', 'com.mysql.cj.jdbc.Driver', 'Y');

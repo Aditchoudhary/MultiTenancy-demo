@@ -1,0 +1,16 @@
+sespring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+#  flyway:
+#    enabled: false
+multitenancy:
+  mtapp:
+    master:
+      datasource:
+        url: jdbc:mysql://localhost:3306/master_db?verifyServerCertificate=false&useSSL=false&requireSSL=false
+        username: root
+        password: root
+        driverClassName: com.mysql.cj.jdbc.Driver
